@@ -9,7 +9,17 @@ const defaultBuildConfig: BuildConfig = {
 await Promise.all([
     Bun.build({
         ...defaultBuildConfig,
-        plugins: [dts()],
+        plugins: [dts(
+            {
+                libraries: {
+                    importedLibraries: ['@prisma/client']
+                },
+                output: {
+                    noBanner: true,
+                    exportReferencedTypes: false
+                }
+            }
+        )],
         format: 'esm',
         naming: "[dir]/[name].js",
     }),

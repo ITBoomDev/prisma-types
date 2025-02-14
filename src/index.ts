@@ -23,9 +23,8 @@
  * type UserFindFirstResult = CustomUserResults['findFirst'];
  */
 
-import { PrismaClient } from "@prisma/client";
-import type { Prisma } from "@prisma/client";
-import { Operation } from "@prisma/client/runtime/library";
+import { PrismaClient, type Prisma } from '@prisma/client';
+import { type Operation } from '@prisma/client/runtime/library.js';
 
 /**
  * The keys (model names) of Prisma Client tables.
@@ -68,7 +67,7 @@ export type OpResult<
     T extends TableKey,
     O extends OpKey<T>,
     P extends OpArgs<T, O> = OpArgs<T, O>
-    > = Prisma.Result<Table<T>, P, O>;
+> = Prisma.Result<Table<T>, P, O>;
 
 
 /**
