@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Compiled output
+dist/
+tsconfig.tsbuildinfo
+
+# Prisma generated files
+.prisma/
+prisma/generated/
+
+# Environment variables
+.env
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Lock files 
+package-lock.json
+yarn.lock
+bun.lockb
+
+# Test coverage
+coverage/
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
