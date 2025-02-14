@@ -1,11 +1,11 @@
 {
     "name": "@itboom/prisma-types",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Bohdan Kulinchenko",
-    "homepage": "https://github.com/itboom/prisma-types.git",
+    "homepage": "https://github.com/ITBoomDev/prisma-types.git",
     "repository": {
         "type": "git",
-        "url": "https://github.com/itboom/prisma-types.git"
+        "url": "https://github.com/ITBoomDev/prisma-types.git"
     },
     "main": "dist/index.cjs",
     "module": "./dist/index.js",
