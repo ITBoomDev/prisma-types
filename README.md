@@ -123,7 +123,7 @@ Contributions are welcome! If you have suggestions, improvements, or bug fixes, 
 Contact 📬
 ----------
 
-For questions or further information, please contact: [your-email@example.com](mailto:your-email@example.com)
+For questions or further information, please contact: [itboom.dev@gmail.com](mailto:itboom.dev@gmail.com)
 
 * * *
 

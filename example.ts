@@ -4,6 +4,7 @@ import { TableKey, TableArgs, OpResult } from './dist';
 const prisma = new PrismaClient();
 
 const tableKey: TableKey = "user";
+
 type UserArgs = TableArgs<typeof tableKey>;
 
 // Create a payload for the findFirst operation.
