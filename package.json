@@ -1,6 +1,6 @@
 {
     "name": "@itboom/prisma-types",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Global, type-safe utilities for working with Prisma Client operations and model types.",
     "author": "Bohdan Kulinchenko",
     "license": "MIT",
