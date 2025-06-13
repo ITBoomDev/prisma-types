@@ -9,15 +9,15 @@
         "type": "git",
         "url": "https://github.com/ITBoomDev/prisma-types.git"
     },
-    "types": "./dist/global.d.ts",
+    "types": "./dist/index.d.ts",
     "exports": {
-        "types": "./dist/global.d.ts"
+        "types": "./dist/index.d.ts"
     },
     "files": [
         "dist"
     ],
     "scripts": {
-        "prepare": "mkdir -p dist && cp src/global.d.ts dist",
+        "prepare": "mkdir -p dist && cp src/*.d.ts dist",
         "prepublishOnly": "bun run prepare",
         "prisma_generate": "prisma generate",
         "pub:patch": "npm version patch && bun publish --access public",
