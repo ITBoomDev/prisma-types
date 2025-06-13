@@ -1,5 +1,6 @@
 {
     "name": "@itboom/prisma-types",
+    "private": false,
     "version": "1.1.1",
     "description": "Global, type-safe utilities for working with Prisma Client operations and model types.",
     "author": "Bohdan Kulinchenko",
@@ -20,9 +21,13 @@
         "prepare": "mkdir -p dist && cp src/*.d.ts dist",
         "prepublishOnly": "bun run prepare",
         "prisma_generate": "prisma generate",
-        "pub:patch": "npm version patch && bun publish --access public",
-        "pub:minor": "npm version minor && bun publish --access public",
-        "pub:major": "npm version major && bun publish --access public"
+        "pub:first": "bun publish",
+        "pub:patch": "npm version patch && bun publish",
+        "pub:minor": "npm version minor && bun publish",
+        "pub:major": "npm version major && bun publish"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "devDependencies": {
         "@types/node": "^20.5.7",
