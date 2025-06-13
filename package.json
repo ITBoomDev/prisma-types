@@ -1,49 +1,60 @@
 {
     "name": "@itboom/prisma-types",
     "version": "1.0.2",
+    "description": "Global, type-safe utilities for working with Prisma Client operations and model types.",
     "author": "Bohdan Kulinchenko",
-    "homepage": "https://github.com/ITBoomDev/prisma-types.git",
+    "license": "MIT",
+    "homepage": "https://github.com/ITBoomDev/prisma-types",
     "repository": {
         "type": "git",
         "url": "https://github.com/ITBoomDev/prisma-types.git"
     },
-    "main": "dist/index.cjs",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "types": "./dist/global.d.ts",
+    "exports": {
+        "types": "./dist/global.d.ts"
+    },
     "files": [
         "dist"
     ],
+    "scripts": {
+        "prepare": "mkdir -p dist && cp src/global.d.ts dist",
+        "prepublishOnly": "bun run prepare",
+        "prisma_generate": "prisma generate",
+        "pub:patch": "npm version patch && bun publish --access public",
+        "pub:minor": "npm version minor && bun publish --access public",
+        "pub:major": "npm version major && bun publish --access public"
+    },
     "devDependencies": {
-        "@types/bun": "^1.2.2",
         "@types/node": "^20.5.7",
-        "bun-plugin-dts": "^0.3.0",
-        "prisma": "^6.3.1",
-        "typescript": "^5.1.6"
+        "typescript": "^5.1.6",
+        "prisma": "^6.3.1"
     },
     "peerDependencies": {
         "@prisma/client": "^5.9.1"
     },
-    "exports": {
-        "types": "./dist/index.d.ts",
-        "import": "./dist/index.js",
-        "require": "./dist/index.cjs"
-    },
-    "description": "Helper types for working with Prisma Client operations.",
     "keywords": [
         "prisma",
-        "typescript",
-        "prisma-client",
-        "types",
-        "itboom",
-        "model",
-        "result",
+        "prisma-types",
+        "prisma client",
+        "prisma client types",
+        "prisma helper",
+        "prisma utils",
+        "prisma arguments",
+        "prisma args",
+        "prisma result",
+        "prisma operations",
+        "prisma model types",
+        "prisma metadata",
+        "typed prisma",
+        "type-safe prisma",
         "orm",
-        "prisma-types"
-    ],
-    "license": "MIT",
-    "scripts": {
-        "build": "bun run build.ts",
-        "prepublishOnly": "bun run build",
-        "prisma_generate": "prisma generate"
-    }
+        "orm types",
+        "typescript",
+        "typescript utils",
+        "typescript prisma",
+        "typed orm",
+        "prisma query",
+        "typed prisma query",
+        "itboom"
+    ]
 }

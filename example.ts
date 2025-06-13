@@ -1,19 +1,54 @@
 import { PrismaClient } from '@prisma/client';
-import { TableKey, TableArgs, OpResult } from './dist';
+import {
+    PrismaTableKey,
+    PrismaTableArgs,
+    PrismaTableResults,
+    PrismaOpResult,
+} from '@itboom/prisma-types';
 
+// Initialize Prisma Client
 const prisma = new PrismaClient();
 
-const tableKey: TableKey = "user";
+// Fix the model name statically
+const tableKey: PrismaTableKey = 'user';
 
-type UserArgs = TableArgs<typeof tableKey>;
+// Get all argument types for operations on this model
+type UserArgs = PrismaTableArgs<typeof tableKey>;
 
-// Create a payload for the findFirst operation.
-const findFirstPayload = {
-    where: { email: "example@example.com" },
-    select: { posts: true },
-} satisfies UserArgs['findFirst']
+// Get all result types for operations on this model (with default payload)
+type UserResults = PrismaTableResults<typeof tableKey>;
 
-type UserFindFirstResult = OpResult<typeof tableKey, "findFirst", typeof findFirstPayload>;
+// Prepare a payload for the 'findFirst' operation
+const findFirstPayload: UserArgs['findFirst'] = {
+    where: { email: 'example@example.com' },
+    select: {
+        id: true,
+        name: true,
+        posts: {
+            select: {
+                title: true,
+                published: true
+            },
+        },
+    },
+};
 
-const user: UserFindFirstResult = await prisma.user.findFirst(findFirstPayload);
-console.log("findFirst result:", user);
+// Infer the result type for 'findFirst' based on the payload
+type UserFindFirstResult = PrismaOpResult<
+    typeof tableKey,
+    'findFirst',
+    typeof findFirstPayload
+>;
+
+async function main() {
+    const user: UserFindFirstResult = await prisma.user.findFirst(findFirstPayload);
+    console.log('📦 Fetched user with posts:', user);
+}
+
+main()
+    .catch((e) => {
+        console.error('❌ Error during execution:', e);
+    })
+    .finally(async () => {
+        await prisma.$disconnect();
+    });
